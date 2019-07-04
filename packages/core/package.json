@@ -19,7 +19,9 @@
   "scripts": {
     "prebuild": "rm -rf lib/",
     "build": "babel --config-file ../../babel.config.js -d lib --ignore \"**/*.test.js\" src",
-    "prepublishOnly": "yarn run build"
+    "prepublishOnly": "yarn run build",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "camelcase": "^5.0.0",
@@ -28,6 +30,8 @@
     "h2x-plugin-jsx": "^1.1.0",
     "merge-deep": "^3.0.2",
     "prettier": "^1.14.2",
-    "svgo": "^1.0.5"
-  }
+    "svgo": "^1.0.5",
+    "snyk": "^1.189.0"
+  },
+  "snyk": true
 }
