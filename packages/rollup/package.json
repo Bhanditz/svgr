@@ -19,7 +19,9 @@
   "scripts": {
     "prebuild": "rm -rf lib/",
     "build": "babel --config-file ../../babel.config.js -d lib --ignore \"**/*.test.js\" src",
-    "prepublishOnly": "yarn run build"
+    "prepublishOnly": "yarn run build",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@babel/core": "^7.0.1",
@@ -27,11 +29,13 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@svgr/core": "^2.4.1",
-    "rollup-pluginutils": "^2.3.1"
+    "rollup-pluginutils": "^2.3.1",
+    "snyk": "^1.192.0"
   },
   "devDependencies": {
     "rollup": "^0.65.2",
     "rollup-plugin-image": "^1.0.2",
     "rollup-plugin-url": "^1.4.0"
-  }
+  },
+  "snyk": true
 }
