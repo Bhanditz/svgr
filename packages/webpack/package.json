@@ -19,7 +19,9 @@
   "scripts": {
     "prebuild": "rm -rf lib/",
     "build": "babel --config-file ../../babel.config.js -d lib --ignore \"**/*.test.js\" src",
-    "prepublishOnly": "yarn run build"
+    "prepublishOnly": "yarn run build",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@babel/core": "^7.0.1",
@@ -27,12 +29,14 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@svgr/core": "^2.4.1",
-    "loader-utils": "^1.1.0"
+    "loader-utils": "^1.1.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "babel-loader": "^8.0.2",
     "memory-fs": "^0.4.1",
     "url-loader": "^1.1.1",
     "webpack": "^4.19.0"
-  }
+  },
+  "snyk": true
 }
